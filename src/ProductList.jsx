@@ -11,7 +11,7 @@ function ProductList({ onNavigateToLanding }) {
   const dispatch = useDispatch();
 
   // Calculate total number of items in the cart across all quantities
-  const totalItemsCount = cartItems.reduce((total, item) => total + item.quantity, 0);
+  const totalQuantity = cartItems.reduce((total, item) => total + item.quantity, 0);
 
   const plantsArray = [
     {
@@ -28,6 +28,30 @@ function ProductList({ onNavigateToLanding }) {
           image: "https://images.unsplash.com/photo-1572656631137-7935297eff55?auto=format&fit=crop&w=600&q=80",
           description: "Elegant cascading leaves that filter formaldehyde and carbon monoxide.",
           cost: "$12"
+        },
+        {
+          name: "Peace Lily",
+          image: "https://images.unsplash.com/photo-1593691509543-c55fb32e7355?auto=format&fit=crop&w=600&q=80",
+          description: "Beautiful white blooms that filter indoor pollutants and thrive in shade.",
+          cost: "$18"
+        },
+        {
+          name: "Boston Fern",
+          image: "https://images.unsplash.com/photo-1545167622-3a6ac756afa4?auto=format&fit=crop&w=600&q=80",
+          description: "Feathery fronds that naturally humidify and purify indoor spaces.",
+          cost: "$14"
+        },
+        {
+          name: "Rubber Plant",
+          image: "https://images.unsplash.com/photo-1598880940080-ff9a29891b85?auto=format&fit=crop&w=600&q=80",
+          description: "Thick glossy leaves that remove toxins efficiently and look stunning.",
+          cost: "$20"
+        },
+        {
+          name: "English Ivy",
+          image: "https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?auto=format&fit=crop&w=600&q=80",
+          description: "Classic climbing vine known to reduce airborne mold particles.",
+          cost: "$16"
         }
       ]
     },
@@ -45,6 +69,30 @@ function ProductList({ onNavigateToLanding }) {
           image: "https://images.unsplash.com/photo-1515589654462-a9881e276b8a?auto=format&fit=crop&w=600&q=80",
           description: "Culinary herb with a fresh woody scent that boosts memory and alertness.",
           cost: "$14"
+        },
+        {
+          name: "Mint",
+          image: "https://images.unsplash.com/photo-1536882240095-0379873feb4e?auto=format&fit=crop&w=600&q=80",
+          description: "Refreshing aroma that enlivens spaces and deters common household pests.",
+          cost: "$10"
+        },
+        {
+          name: "Basil",
+          image: "https://images.unsplash.com/photo-1618386365623-b1c1e5405021?auto=format&fit=crop&w=600&q=80",
+          description: "Sweet peppery scent, perfect for sunny kitchen window sills.",
+          cost: "$12"
+        },
+        {
+          name: "Jasmine",
+          image: "https://images.unsplash.com/photo-1508780709619-79562169bc64?auto=format&fit=crop&w=600&q=80",
+          description: "Sweet floral fragrance that boosts mood and energizes the room.",
+          cost: "$22"
+        },
+        {
+          name: "Eucalyptus",
+          image: "https://images.unsplash.com/photo-1550950158-d0d960dff51b?auto=format&fit=crop&w=600&q=80",
+          description: "Cooling minty scent that helps clear breathing passages and freshens air.",
+          cost: "$25"
         }
       ]
     },
@@ -62,6 +110,30 @@ function ProductList({ onNavigateToLanding }) {
           image: "https://images.unsplash.com/photo-1597055181300-e3633a207518?auto=format&fit=crop&w=600&q=80",
           description: "Extremely tough plant that survives in low light and irregular watering.",
           cost: "$22"
+        },
+        {
+          name: "ZZ Plant",
+          image: "https://images.unsplash.com/photo-1632207691143-643e2a9a9361?auto=format&fit=crop&w=600&q=80",
+          description: "Shiny waxy leaves, thrives in low light and requires very little watering.",
+          cost: "$19"
+        },
+        {
+          name: "Pothos",
+          image: "https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&w=600&q=80",
+          description: "Fast-growing trailing vine that tolerates low light and drought easily.",
+          cost: "$13"
+        },
+        {
+          name: "Jade Plant",
+          image: "https://images.unsplash.com/photo-1599599810769-bcde5a160d32?auto=format&fit=crop&w=600&q=80",
+          description: "Thick woody stems and succulent leaves symbolizing good luck.",
+          cost: "$15"
+        },
+        {
+          name: "Chinese Evergreen",
+          image: "https://images.unsplash.com/photo-1621252179027-94459d278660?auto=format&fit=crop&w=600&q=80",
+          description: "Sturdy plant with variegated leaves that thrives in low light environments.",
+          cost: "$16"
         }
       ]
     }
@@ -92,17 +164,17 @@ function ProductList({ onNavigateToLanding }) {
         <div className="navbar-links">
           <a 
             href="#" 
-            className={`nav-link ${!showCart ? 'active' : ''}`} 
-            onClick={(e) => { e.preventDefault(); setShowCart(false); }}
-          >
-            Plants
-          </a>
-          <a 
-            href="#" 
             className="nav-link" 
             onClick={(e) => { e.preventDefault(); onNavigateToLanding(); }}
           >
             Home
+          </a>
+          <a 
+            href="#" 
+            className={`nav-link ${!showCart ? 'active' : ''}`} 
+            onClick={(e) => { e.preventDefault(); setShowCart(false); }}
+          >
+            Plants
           </a>
           <button 
             className="cart-icon-btn" 
@@ -110,9 +182,7 @@ function ProductList({ onNavigateToLanding }) {
           >
             <ShoppingCart size={20} />
             <span>Cart</span>
-            {totalItemsCount > 0 && (
-              <span className="cart-badge">{totalItemsCount}</span>
-            )}
+            <span className="cart-badge">{totalQuantity}</span>
           </button>
         </div>
       </nav>

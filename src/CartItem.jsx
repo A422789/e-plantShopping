@@ -43,7 +43,7 @@ function CartItem({ onContinueShopping }) {
   };
 
   const handleCheckout = () => {
-    alert("Checkout functionality coming soon!");
+    alert("Thank you for shopping with Paradise Nursery! Checkout functionality is coming soon.");
   };
 
   return (

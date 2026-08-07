@@ -10,7 +10,7 @@ function App() {
   return (
     <div className="app-container">
       {view === 'landing' ? (
-        <div className="landing-page">
+        <div className="landing-page background-image">
           <div className="landing-content">
             <AboutUs />
             <div className="landing-divider"></div>
